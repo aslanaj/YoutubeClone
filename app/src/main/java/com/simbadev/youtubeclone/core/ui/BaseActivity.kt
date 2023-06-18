@@ -1,14 +1,16 @@
-package com.simbadev.youtubeclone.base
+package com.simbadev.youtubeclone.core.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.simbadev.youtubeclone.core.utils.ConnectionLiveData
 
 abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
     protected lateinit var binding: VB
 
     protected abstract fun inflateViewBinding(): VB
+    protected lateinit var connectionLiveData: ConnectionLiveData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +21,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         setUI()
         setupLiveData()
         initClickListener()
+        connectionLiveData = ConnectionLiveData(this)
 
     }
 

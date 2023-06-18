@@ -1,9 +1,8 @@
-package com.simbadev.youtubeclone.remote
+package com.simbadev.youtubeclone.core.network
 
-import com.simbadev.youtubeclone.BuildConfig
 import com.simbadev.youtubeclone.BuildConfig.*
+import com.simbadev.youtubeclone.remote.ApiService
 import okhttp3.OkHttpClient
-import okhttp3.OkHttpClient.*
 import okhttp3.logging.HttpLoggingInterceptor
 
 import retrofit2.Retrofit

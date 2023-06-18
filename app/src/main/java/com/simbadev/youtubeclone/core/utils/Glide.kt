@@ -1,4 +1,4 @@
-package com.simbadev.youtubeclone
+package com.simbadev.youtubeclone.core.utils
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

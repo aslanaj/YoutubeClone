@@ -1,24 +1,26 @@
-package com.simbadev.youtubeclone.ui.adapter
+package com.simbadev.youtubeclone.ui.playlist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
+import com.simbadev.youtubeclone.R
 import com.simbadev.youtubeclone.databinding.ItemPlayListBinding
+import com.simbadev.youtubeclone.remote.model.Item
 
 class MainAdapter(
-    private val onClick: (item: com.simbadev.youtubeclone.model.Item)-> Unit
+    private val onClick: (item: Item) -> Unit
 ) : RecyclerView.Adapter<MainAdapter.PlayListViewHolder>(
 
 ) {
 
-    fun setList(liste: List<com.simbadev.youtubeclone.model.Item>){
-        this.list = liste as ArrayList<com.simbadev.youtubeclone.model.Item>
+    fun setList(liste: List<Item>) {
+        this.list = liste as ArrayList<Item>
         notifyDataSetChanged()
     }
 
-    private var list = arrayListOf<com.simbadev.youtubeclone.model.Item>()
+    private var list = arrayListOf<Item>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayListViewHolder {
@@ -42,12 +44,15 @@ class MainAdapter(
         ViewHolder(binding.root) {
 
 
-        fun bind(item: com.simbadev.youtubeclone.model.Item) {
+        fun bind(item: Item) {
 
             binding.image.load(item.snippet.thumbnails.default.url)
             binding.apply {
                 tvTitle.text = item.snippet.title
-                tvVideo.text= "${item.contentDetails.itemCount} video"
+                tvVideo.text = String.format(
+                    itemView.context.getString(R.string.video_series),
+                    item.contentDetails.itemCount
+                )
             }
 
             itemView.setOnClickListener {

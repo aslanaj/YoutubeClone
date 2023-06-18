@@ -1,12 +1,12 @@
-package com.simbadev.youtubeclone.ui
+package com.simbadev.youtubeclone.ui.playlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.simbadev.youtubeclone.BuildConfig
-import com.simbadev.youtubeclone.model.PlayLists
+import com.simbadev.youtubeclone.remote.model.PlayLists
 import com.simbadev.youtubeclone.remote.ApiService
-import com.simbadev.youtubeclone.remote.RetrofitClient
+import com.simbadev.youtubeclone.core.network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

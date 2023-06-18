@@ -1,4 +1,4 @@
-package com.simbadev.youtubeclone.model
+package com.simbadev.youtubeclone.remote.model
 
 data class PlayList(
     val etag: String,

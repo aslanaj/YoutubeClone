@@ -1,4 +1,4 @@
-package com.simbadev.youtubeclone.ui
+package com.simbadev.youtubeclone.ui.detailed
 
 import androidx.lifecycle.ViewModel
 
