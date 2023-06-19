@@ -17,7 +17,6 @@ class MainAdapter(
 
     fun setList(liste: List<Item>) {
         this.list = liste as ArrayList<Item>
-        notifyDataSetChanged()
     }
 
     private var list = arrayListOf<Item>()

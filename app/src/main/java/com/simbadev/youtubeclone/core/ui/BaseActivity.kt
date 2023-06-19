@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.simbadev.youtubeclone.core.utils.ConnectionLiveData
 
-abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
+abstract class BaseActivity<VB : ViewBinding, VM: BaseViewModel> : AppCompatActivity() {
 
     protected lateinit var binding: VB
+    protected abstract val viewModel: VM
 
     protected abstract fun inflateViewBinding(): VB
     protected lateinit var connectionLiveData: ConnectionLiveData

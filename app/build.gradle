@@ -15,7 +15,7 @@ android {
         versionName "1.0"
 
         buildConfigField "String", "BASE_URL", "\"https://www.googleapis.com/youtube/v3/\""
-        buildConfigField "String", "API_KEY", "\"AIzaSyBQxS_Oxp53642D_nS9qsgLwhoXyrU8tyE\""
+        buildConfigField "String", "API_KEY", "\"AIzaSyB3WmuK3m1i9BsE2KllPXjmm0NX4X5p0ko\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -47,6 +47,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"

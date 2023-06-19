@@ -6,28 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".ui.detailed.DetailActivity">
 
-
-    <FrameLayout
-        android:id="@+id/no_internet_connection"
+    <include
+        android:id="@+id/layout_include"
+        layout="@layout/layout_no_internet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone">
-
-        <include
-            android:id="@+id/no_internet_connection_include"
-            layout="@layout/layout_no_internet" />
-
-    </FrameLayout>
+        android:visibility="gone" />
 
     <TextView
+        android:id="@+id/tv_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_16dp"
-        android:layout_marginTop="@dimen/_16dp"
-        android:drawableStart="@drawable/ic_arrow_back"
-        android:text="Back"
+        android:layout_marginVertical="@dimen/_16dp"
+        android:text="@string/back"
         android:textColor="@color/red"
         android:textSize="18sp"
+        app:drawableStartCompat="@drawable/ic_arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,8 +30,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16dp"
-        android:text="Playlist"
+        android:layout_marginVertical="@dimen/_16dp"
+        android:text="@string/playlist"
         android:textColor="@color/red"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,32 +40,21 @@
 
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/internet_connection"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-        android:background="@color/white"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="60dp">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_back">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/main.appbar"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:fitsSystemWindows="true"
-            android:theme="@style/ThemeOverlay.AppCompat.DayNight">
+            android:layout_height="200dp">
 
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/main.collapsing"
                 android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_16dp"
                 android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                app:contentScrim="?attr/colorPrimary"
-                app:expandedTitleMarginEnd="64dp"
-                app:expandedTitleMarginStart="48dp"
-                app:layout_anchor="@+id/main.appbar"
-                app:layout_anchorGravity="center"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <LinearLayout
@@ -85,8 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="16dp"
                         android:layout_marginTop="24dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="Title"
+                        android:text="@string/title"
                         android:textColor="@color/black"
                         android:textSize="24sp"
                         android:textStyle="bold" />
@@ -96,29 +79,51 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="16dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginTop="8dp"
                         android:gravity="center_vertical"
-                        android:text="Desc"
+                        android:text="@string/desc"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
+
         </com.google.android.material.appbar.AppBarLayout>
 
+<!--
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_collapseMode="pin"
+            android:layout_gravity="center"
+            app:layout_anchor="@id/main.appbar"
+            >
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16dp"
+                android:text="@string/count"
+                android:textSize="12sp" />
+        </LinearLayout>-->
+
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_play_lists"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_play_list" />
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="@dimen/_16dp"
+                android:text="@string/count"
+                android:textSize="12sp" />
 
         </androidx.core.widget.NestedScrollView>
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -130,8 +135,29 @@
             app:layout_anchor="@id/main.appbar"
             app:layout_anchorGravity="bottom|right|end"
             app:shapeAppearance="@style/fab_bg"
-            app:tint="@color/white" />
+            app:tint="@color/white"
+            tools:ignore="ContentDescription" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_play_lists"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_play_list" />
+
+
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@android:color/holo_red_dark"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
