@@ -1,4 +1,4 @@
-package com.simbadev.youtubeclone.ui.detailed
+package com.simbadev.youtubeclone.ui.detailed.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.simbadev.youtubeclone.core.utils.loadImage
 import com.simbadev.youtubeclone.databinding.ItemDetailBinding
-import com.simbadev.youtubeclone.remote.model.Item
 import com.simbadev.youtubeclone.remote.model.PlaylistItems
 
 class DetailAdapter() : RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {

@@ -30,7 +30,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         super.setupLiveData()
 
         viewModel.loading.observe(this) {
-       //     binding.progressBar.isVisible = it
+         //      binding.progressBar.isVisible = it
         }
 
         viewModel.getPlaylists().observe(this) {

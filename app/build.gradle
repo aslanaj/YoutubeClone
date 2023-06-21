@@ -15,7 +15,10 @@ android {
         versionName "1.0"
 
         buildConfigField "String", "BASE_URL", "\"https://www.googleapis.com/youtube/v3/\""
-        buildConfigField "String", "API_KEY", "\"AIzaSyB3WmuK3m1i9BsE2KllPXjmm0NX4X5p0ko\""
+        buildConfigField "String", "API_KEY", "\"AIzaSyDpZGXzcnDXX2J_3yPMl1mf1XOYqHlJ8Pw\""
+
+
+        //buildConfigField "String", "API_KEY", "\"AIzaSyB3WmuK3m1i9BsE2KllPXjmm0NX4X5p0ko\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -33,7 +36,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
 }
@@ -54,8 +57,8 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 
 // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1"
 
 // Lifecycle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
@@ -69,6 +72,6 @@ dependencies {
     //coil
     implementation("io.coil-kt:coil-compose:2.4.0")
 
-    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.material:material:1.9.0'
 
 }

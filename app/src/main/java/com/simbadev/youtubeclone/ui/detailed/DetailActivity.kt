@@ -10,6 +10,7 @@ import com.simbadev.youtubeclone.core.result.Resource
 import com.simbadev.youtubeclone.core.ui.BaseActivity
 import com.simbadev.youtubeclone.core.utils.ConnectionLiveData
 import com.simbadev.youtubeclone.databinding.ActivityDetailBinding
+import com.simbadev.youtubeclone.ui.detailed.adapter.DetailAdapter
 import com.simbadev.youtubeclone.ui.playlist.MainActivity.Companion.KEY_FOR_COUNT_OF_VIDEOS
 import com.simbadev.youtubeclone.ui.playlist.MainActivity.Companion.KEY_FOR_DESCRIPTION
 import com.simbadev.youtubeclone.ui.playlist.MainActivity.Companion.KEY_FOR_ID

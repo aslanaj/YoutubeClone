@@ -23,7 +23,7 @@ class Repository {
 
         data.value = Resource.loading()
 
-        apiService.getPlayList(part, BuildConfig.API_KEY, channelId)
+        apiService.getPlayList(part, channelId, BuildConfig.API_KEY)
             .enqueue(object : retrofit2.Callback<PlayLists> {
                 override fun onResponse(call: Call<PlayLists>, response: Response<PlayLists>) {
                     if (response.isSuccessful){
